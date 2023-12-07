@@ -1,0 +1,36 @@
+<div class="container mt-5">
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Entreprise  </label>
+            <select class="form-control form-control-lg" id="idEntreprise" name="idEntreprise" [(ngModel)]="idEntreprise" (change)="onChange()">
+                <option *ngFor="let entr of entreprises" value="{{entr.idEntreprise}}">
+
+                    {{entr.nomEntreprise}}
+                </option>
+            </select>
+        </div>
+    </form>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr><th>ID</th><th>Name Employee</th><th>Salaire</th><th>Entreprise</th>
+                </tr>
+              
+              
+                <tbody *ngFor="let employee of employees ">
+
+                    <tr>
+                        <td>{{employee.idEmploye}}</td>
+                        <td>{{employee.nomEmploye}}</td>
+                        <td>{{employee.salaire}}</td>
+                        <td>{{employee.entreprise!.nomEntreprise}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{employees|json}}

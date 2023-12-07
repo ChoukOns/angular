@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Nom</th> <th>Salaire</th><th>Entreprise</th><th>Image</th><th>Supprimer</th><th>Editer</th>  
+                </thead>
+                <tbody *ngFor="let employee of employees">
+                    <tr>
+                        <td>{{employee.idEmploye}}</td>
+                        <td>{{employee.nomEmploye}}</td>
+                        <td>{{employee.salaire}}</td>
+                        <td>{{employee.entreprise!.nomEntreprise}}</td>  
+                        <td><img class="card-img-top img-responsive" src = "{{employee.imageStr}}" style = "height :50px;width:100px"> </td>
+                        <td><a class="btn btn-danger" (click)="supprimerEmployee(employee)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateEmployee',employee.idEmploye]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

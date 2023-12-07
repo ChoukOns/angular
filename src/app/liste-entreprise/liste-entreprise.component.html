@@ -1,0 +1,25 @@
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+    <app-update-entreprise  [entreprise]="updatedEntr"
+        (entrepriseUpdated)= "entrepriseUpdated($event)"
+        [ajout]="ajout">
+    </app-update-entreprise>
+ </div> 
+
+
+<div class="card shadow mb-4">
+     <div class="card-body"> 
+        <table class="table table-striped"> 
+            <thead> 
+                <tr> 
+                    <th>Id</th><th>Nom Entreprise</th><th>Adresse Entreprise</th> </tr> 
+                </thead> 
+                <tbody *ngFor="let entr of entreprises">
+                     <tr> <td>{{entr.idEntreprise}}</td> 
+                        <td>{{entr.nomEntreprise}}</td> 
+                        <td>{{entr.adresseEntreprise}}</td>
+                        <td><a class="btn btn-success" (click)="updateEntr(entr)">Editer</a></td>
+                    </tr>
+                 </tbody> 
+                </table> 
+            </div>
+         </div> 
